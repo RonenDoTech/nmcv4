@@ -8,7 +8,10 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-
+//    $scope.loadNews = function() {
+//        console.log("loadNews fire");
+//        allnews.controller.
+//    };
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -66,47 +69,36 @@ app.controller('mainAppCtrl', function($scope,$ionicSlideBoxDelegate) {
   }
 });
 
-app.controller('newsCtrl', function($scope, $stateParams,$http) {
-  console.log("i'm news ctrl");
+var allnews = app.controller('newsCtrl', function($scope, $stateParams,$http) {
+   var url;
   $scope.newsPosts = []; // array
-  //var url1 = 'http://crm.dotech.co.il/events.json.php';
- // var url = 'https://www.reddit.com/r/android/new/.json';
- var url1 = 'http://www.nmc.dotech.co.il/action/action.php';
+  console.log("i'm news ctrl, array size : " + $scope.newsPosts.length);
+  url = 'http://www.nmc.dotech.co.il/action/action.php';
   
   var params = {act : 'newsList','k':k};
-    $http.get(url1, {params: params}).success(function (response){
-      //console.log(response.result[0]);
+    
+    $http.get(url, {params: params}).success(function (response){
       angular.forEach(response.result, function(child) {
         $scope.newsPosts.push(child);
         console.log(child);
       });
-    });
+    }); // end of http get
+   console.log("First Get Http , array size : " + $scope.newsPosts.length);
 
+   //ion-refresher function
     $scope.loadNewerNews = function() {
-      var temp = $scope.newsPosts;
-      console.log("loadNewerNews Fire , size:" + $scope.newsPosts.length);
-      //$scope.newsPosts = [];
+     $scope.newsPosts = []; // clear the array for new posts
+     // console.log("loadNewerNews Fire , size:" + $scope.newsPosts.length);
       var params = {act : 'newsList','k':k};
-     $http.get(url1, {params: params}).success(function (response){
-      //console.log(response.result[0]);
+      //var i = 0;
+        
+     $http.get(url, {params: params}).success(function (response){
       angular.forEach(response.result, function(child) {
-      
-       if(response.result.length != temp.length)
-       {
-        console.log(child);
-        console.log("inside if temp size :"+temp.length);
-        console.log(" inside if response size:"+response.result.length);
-         $scope.newsPosts= [];
-          $scope.newsPosts.push(child);
-      }
-      
+          //i++;
+                // console.log("counter : " + i + "," + child);
+                 $scope.newsPosts.push(child);
 
-      });
-        console.log("temp size :"+temp.length);
-        console.log("response size:"+response.result.length);
-
-      
-
+       });
     })
     .finally(function() {
        // Stop the ion-refresher from spinning
