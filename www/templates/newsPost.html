@@ -1,0 +1,19 @@
+<ion-view view-title="חדשות" class="content-Hebrew">
+  <ion-content>
+
+    <div class="card">
+	  <div class="item item-divider">
+	   {{Post.title}}       [{{Post.publishDate}}]
+	  </div>
+
+	  
+	  <div class="item item-text-wrap">
+	  {{Post.summary}}
+	  </div>
+    <div class="item item-divider">
+	    <div class="item item-image">
+    <img src={{Post.photo}}>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>

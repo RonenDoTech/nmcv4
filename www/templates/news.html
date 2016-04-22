@@ -1,0 +1,30 @@
+<ion-view view-title="חדשות">
+  <ion-content>
+  <ion-refresher pulling-text="Pull to refresh..." on-refresh="loadNewerNews()">
+  </ion-refresher>
+   <!--  {{getData}} -->
+       <!--  <ion-refresher pulling-text="Pull to refresh..." on-refresh="loadNewerStories()">
+            </ion-refresher>
+
+       <div class="list">
+       -->
+       <!--  item-text-wrap -->
+         <a class="item" ng-repeat="newsPost in newsPosts" href="#/app/news/{{newsPost.id}}" >
+         <!--  id : {{story.id}} , {{story.domain}} --> 
+          <!-- <img ng-src="{{story.thumbnail}}" ng-if="story.thumbnail.startsWith('http')"/> -->
+          <h4 class="newsPost-title">{{newsPost.title}}</h4>
+          
+                  
+           {{newsPost.date}}
+
+         <!--  <p>
+          <span am-time-ago="story.created_utc" am-preprocess="unix"></span>
+          - {{story.domain}}
+          </p> -->
+         </a>
+       </div>
+
+         <!--   <ion-infinite-scroll on-infinite="loadOlderStories()"  distance="1%">
+          </ion-infinite-scroll> -->
+  </ion-content>
+</ion-view>

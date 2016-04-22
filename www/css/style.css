@@ -1,0 +1,20 @@
+/* Empty. Add your own CSS if you like */
+
+
+.list.card{
+	direction: rtl;
+}
+
+.nav-left-content-hebrew{
+	direction: ltr;
+	text-align: right;
+}
+.menu-left-content-hebrew{
+	direction: rtl;
+	text-align: right;
+}
+/* newsPost HTML Page */
+.content-Hebrew{ 
+	direction: rtl;
+	text-align: right;
+}

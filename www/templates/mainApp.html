@@ -1,0 +1,52 @@
+<ion-view view-title="NMC Medical">
+                  <ion-content scroll="true"> 
+                  <ion-slide-box show-pager="true" does-continue="true" auto-play="true">
+                                    <ion-slide ng-repeat="i in [0,1,2,3,4]" ng-click="nextSlide({{i}})">
+                                          <a href="#/app/news/{{i}}">
+                                                   <div class="list card" id="gallery">
+                                                      <ion-item href="#/app/news/{{i}}">
+                                                        Link to detail page
+                                                      </ion-item>
+                                                    <div class="item item-image">
+                                                      <img ng-src="http://lorempixel.com/300/200/nature?v={{i}}">
+                                                    </div>
+                                                    <div class="item item-body">
+                                                      <p> שלום </p>        
+                                                      <p>חדשות - סליידר מס: {{i}}</p>
+                                                    </div>
+                                                  </div>
+                                         </a> 
+                                    </ion-slide>
+                    </ion-slide-box>
+                    
+                    <hr class="mfred">
+
+                    <div class="card">
+                      <div class="item item-text-wrap">
+
+                        <h2 class="title">טקסט כרטסיות</h2>
+                        <p>תוכן תוכן תוכן</p>
+                      </div>
+                    </div>
+
+                    <hr class="mfred">
+
+
+                    <div class="list card">
+
+                      <a href="#" class="item item-icon-left">
+                        <i class="icon ion-card"></i>
+                       קבע תור
+                      </a>
+
+                    </div>
+
+                  </ion-content>
+  <!-- <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+        {{playlist.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content> -->
+</ion-view>
